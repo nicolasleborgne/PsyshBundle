@@ -22,7 +22,7 @@
 
         <service id="psysh.facade" class="Fidry\PsyshBundle\PsyshFacade" public="true">
             <call method="setContainer">
-                <argument type="service" id="test.service_container" />
+                <argument type="expression">container.has('test.service_container') ? service('test.service_container') : service('service_container')</argument>
             </call>
         </service>
 
